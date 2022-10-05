@@ -5,7 +5,9 @@
 **1.编译源码**
 使用`javac`命令, 编译`src`源码
 
-`javac -J-Xms1024m -J-Xmx1024m -sourcepath source_code -cp /path/rt.jar:/path/tools.jar -d classes -g @filelist.txt`
+```shell
+javac -J-Xms1024m -J-Xmx1024m -sourcepath source_code -cp /path/rt.jar:/path/tools.jar -d classes -g @filelist.txt
+```
 
 | A               | B                                                              | C                                                                      |
 |-----------------|----------------------------------------------------------------|------------------------------------------------------------------------|
@@ -24,13 +26,16 @@
 **3.复制到指定目录**
 将`rt_debug.jar`包保存到`$JAVA_HOME/jre/lib/endorsed`, 即: `/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/jre/lib/endorsed`
 
-ps: 如果`endorsed`不存在, 直接创建即可
+**ps:** 如果`endorsed`不存在, 直接创建即可
 
 ### or
-`chmod +x script/compiler.sh && cd script && ./compiler.sh`
-
-ps: 如果需要日志把rm -rf classes filelist.txt log.txt 这行禁用
+```shell
+chmod +x script/compiler.sh && cd script && ./compiler.sh
+```
+**ps:** 如果需要日志把rm -rf classes filelist.txt log.txt 这行禁用
 
 ## uninstall
 
+```shell
 chmod +x script/cleanDebugJar.sh && cd script && ./cleanDebugJar.sh
+```
