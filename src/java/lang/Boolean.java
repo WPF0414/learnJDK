@@ -40,6 +40,7 @@ package java.lang;
  * @author  Arthur van Hoff
  * @since   JDK1.0
  */
+// boolean的包装类
 public final class Boolean implements java.io.Serializable,
                                       Comparable<Boolean>
 {
