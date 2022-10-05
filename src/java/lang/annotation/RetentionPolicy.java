@@ -34,18 +34,19 @@ package java.lang.annotation;
  * @author  Joshua Bloch
  * @since 1.5
  */
+// 表示注解保留范围的常量，使用方式：@Retention(RetentionPolicy.XXX)
 public enum RetentionPolicy {
     /**
      * Annotations are to be discarded by the compiler.
      */
-    SOURCE,
+    SOURCE, // 源文件保留
 
     /**
      * Annotations are to be recorded in the class file by the compiler
      * but need not be retained by the VM at run time.  This is the default
      * behavior.
      */
-    CLASS,
+    CLASS,  // 编译期保留，默认值
 
     /**
      * Annotations are to be recorded in the class file by the compiler and
@@ -53,5 +54,5 @@ public enum RetentionPolicy {
      *
      * @see java.lang.reflect.AnnotatedElement
      */
-    RUNTIME
+    RUNTIME // 运行期保留，可通过反射去获取注解信息
 }

@@ -36,6 +36,10 @@ package java.lang.annotation;
  * @jls 9.6 Annotation Types
  * @jls 9.7 Annotations
  */
+/*
+ * 元注解，标记注解是否可重复
+ * 如果注解可重复，则需要配合一个注解容器一起使用
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)

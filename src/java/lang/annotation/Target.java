@@ -73,6 +73,11 @@ package java.lang.annotation;
  * @jls 9.6.4.1 @Target
  * @jls 9.7.4 Where Annotations May Appear
  */
+/*
+ * 元注解，标记注解的应用范围
+ * 默认的应用范围是TYPE_PARAMETER之外的范围
+ * 但是，如果使用了默认范围，则当应用范围发生重叠时，程序可能无法获取到正确的注解。
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)

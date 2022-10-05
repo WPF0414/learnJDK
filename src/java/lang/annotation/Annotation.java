@@ -41,6 +41,7 @@ package java.lang.annotation;
  * @author  Josh Bloch
  * @since   1.5
  */
+// 所有注解类型的公共接口，在定义注解时由系统自动关联
 public interface Annotation {
     /**
      * Returns true if the specified object represents an annotation
@@ -132,5 +133,6 @@ public interface Annotation {
      * Returns the annotation type of this annotation.
      * @return the annotation type of this annotation
      */
+    // 返回注解类型
     Class<? extends Annotation> annotationType();
 }

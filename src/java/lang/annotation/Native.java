@@ -36,6 +36,7 @@ package java.lang.annotation;
  *
  * @since 1.8
  */
+// 元注解，标记可以从native层引用的常量字段
 @Documented
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.SOURCE)

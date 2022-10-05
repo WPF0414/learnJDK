@@ -46,6 +46,12 @@ package java.lang.annotation;
  * @since 1.5
  * @jls 9.6.3.3 @Inherited
  */
+/*
+ * 元注解，标记注解是否可被子类继承
+ * 比如Child继承了Parent，且Parent上有一个可继承的注解，那么Child中也可获取到此注解
+ * 注解默认是不可继承的
+ * 注：接口上的注解无法被实现类继承
+ */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.ANNOTATION_TYPE)
