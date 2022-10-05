@@ -1,4 +1,4 @@
-package test.annotation;
+package test.java.lang.annotation;
 
 /**
  * @author pengfei.wang
