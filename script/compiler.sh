@@ -9,12 +9,13 @@ if [ ! -f "filelist.txt" ]; then touch filelist.txt; fi
 if [ ! -f "log.txt" ]; then touch log.txt; fi
 
 
-javac -J-Xms1G -J-Xmx1G -sourcepath /Users/wangpengfei/work/personal/learnJDK/src/java -cp /Users/wangpengfei/work/personal/learnJDK/script/rt.jar:/Users/wangpengfei/work/personal/learnJDK/script/tools.jar -d /Users/wangpengfei/work/personal/learnJDK/script/classes/ -g @filelist.txt > log.txt 2>&1
+javac -J-Xms1G -J-Xmx1G -sourcepath ../src -cp rt.jar:tools.jar -d ./classes -g @filelist.txt > log.txt 2>&1
 echo "编译中..."
-#cd ../target || exit
+cd classes || exit
 jar cf0 rt_debug.jar ./*
 sudo -S mv rt_debug.jar /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/endorsed
-rm -rf classes filelist.txt log.txt
+cd .. && rm -rf classes filelist.txt log.txt && cd ..
+pwd
 echo "=====操作结束===="
 endTime=$(date +%s)
 echo "本次运行时间： "$((endTime-startTime))"s"
