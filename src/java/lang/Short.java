@@ -40,24 +40,26 @@ package java.lang;
  * @see     java.lang.Number
  * @since   JDK1.1
  */
+// short的包装类
 public final class Short extends Number implements Comparable<Short> {
 
     /**
      * A constant holding the minimum value a {@code short} can
      * have, -2<sup>15</sup>.
      */
-    public static final short   MIN_VALUE = -32768;
+    public static final short   MIN_VALUE = -32768; // short最小值
 
     /**
      * A constant holding the maximum value a {@code short} can
      * have, 2<sup>15</sup>-1.
      */
-    public static final short   MAX_VALUE = 32767;
+    public static final short   MAX_VALUE = 32767;  // short最大值
 
     /**
      * The {@code Class} instance representing the primitive type
      * {@code short}.
      */
+    // 相当于short.class
     @SuppressWarnings("unchecked")
     public static final Class<Short>    TYPE = (Class<Short>) Class.getPrimitiveClass("short");
 
@@ -291,7 +293,7 @@ public final class Short extends Number implements Comparable<Short> {
      *
      * @serial
      */
-    private final short value;
+    private final short value;  // 当前类包装的值
 
     /**
      * Constructs a newly allocated {@code Short} object that
@@ -300,6 +302,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @param value     the value to be represented by the
      *                  {@code Short}.
      */
+    // 构造方法
     public Short(short value) {
         this.value = value;
     }
@@ -317,6 +320,7 @@ public final class Short extends Number implements Comparable<Short> {
      *          does not contain a parsable {@code short}.
      * @see     java.lang.Short#parseShort(java.lang.String, int)
      */
+    // 构造方法
     public Short(String s) throws NumberFormatException {
         this.value = parseShort(s, 10);
     }
@@ -326,6 +330,7 @@ public final class Short extends Number implements Comparable<Short> {
      * a narrowing primitive conversion.
      * @jls 5.1.3 Narrowing Primitive Conversions
      */
+    // 以byte形式返回当前对象的值
     public byte byteValue() {
         return (byte)value;
     }
@@ -334,6 +339,7 @@ public final class Short extends Number implements Comparable<Short> {
      * Returns the value of this {@code Short} as a
      * {@code short}.
      */
+    // 以short形式返回当前对象的值
     public short shortValue() {
         return value;
     }
@@ -343,6 +349,7 @@ public final class Short extends Number implements Comparable<Short> {
      * a widening primitive conversion.
      * @jls 5.1.2 Widening Primitive Conversions
      */
+    // 以int形式返回当前对象的值
     public int intValue() {
         return (int)value;
     }
@@ -352,6 +359,7 @@ public final class Short extends Number implements Comparable<Short> {
      * a widening primitive conversion.
      * @jls 5.1.2 Widening Primitive Conversions
      */
+    // 以long形式返回当前对象的值
     public long longValue() {
         return (long)value;
     }
@@ -361,6 +369,7 @@ public final class Short extends Number implements Comparable<Short> {
      * after a widening primitive conversion.
      * @jls 5.1.2 Widening Primitive Conversions
      */
+    // 以float形式返回当前对象的值
     public float floatValue() {
         return (float)value;
     }
@@ -370,6 +379,7 @@ public final class Short extends Number implements Comparable<Short> {
      * after a widening primitive conversion.
      * @jls 5.1.2 Widening Primitive Conversions
      */
+    // 以double形式返回当前对象的值
     public double doubleValue() {
         return (double)value;
     }
@@ -384,6 +394,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @return  a string representation of the value of this object in
      *          base&nbsp;10.
      */
+    // 按10进制返回当前short的值
     public String toString() {
         return Integer.toString((int)value);
     }
@@ -441,6 +452,7 @@ public final class Short extends Number implements Comparable<Short> {
      *           comparison).
      * @since   1.2
      */
+    // 比较两个Short（按自然顺序比较）
     public int compareTo(Short anotherShort) {
         return compare(this.value, anotherShort.value);
     }
@@ -459,6 +471,7 @@ public final class Short extends Number implements Comparable<Short> {
      *         a value greater than {@code 0} if {@code x > y}
      * @since 1.7
      */
+    // 比较两个short（按自然顺序比较）
     public static int compare(short x, short y) {
         return x - y;
     }
@@ -468,7 +481,7 @@ public final class Short extends Number implements Comparable<Short> {
      * complement binary form.
      * @since 1.5
      */
-    public static final int SIZE = 16;
+    public static final int SIZE = 16;  // 当前类型所占bit[位]数
 
     /**
      * The number of bytes used to represent a {@code short} value in two's
@@ -476,7 +489,7 @@ public final class Short extends Number implements Comparable<Short> {
      *
      * @since 1.8
      */
-    public static final int BYTES = SIZE / Byte.SIZE;
+    public static final int BYTES = SIZE / Byte.SIZE;   // 当前类型所占字节数
 
     /**
      * Returns the value obtained by reversing the order of the bytes in the
@@ -487,6 +500,7 @@ public final class Short extends Number implements Comparable<Short> {
      *     the bytes in the specified {@code short} value.
      * @since 1.5
      */
+    // 以字节为单位逆置字节顺序
     public static short reverseBytes(short i) {
         return (short) (((i & 0xFF00) >> 8) | (i << 8));
     }
@@ -508,6 +522,7 @@ public final class Short extends Number implements Comparable<Short> {
      *         conversion
      * @since 1.8
      */
+    // 将当前short转换为无符号形式，用int存储
     public static int toUnsignedInt(short x) {
         return ((int) x) & 0xffff;
     }
@@ -528,6 +543,7 @@ public final class Short extends Number implements Comparable<Short> {
      *         conversion
      * @since 1.8
      */
+    // 将当前short转换为无符号形式，用long存储
     public static long toUnsignedLong(short x) {
         return ((long) x) & 0xffffL;
     }
