@@ -49,6 +49,7 @@ import java.lang.annotation.Native;
  * @author  Joseph D. Darcy
  * @since JDK1.0
  */
+// int的包装类
 public final class Integer extends Number implements Comparable<Integer> {
     /**
      * A constant holding the minimum value an {@code int} can

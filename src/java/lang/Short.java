@@ -115,6 +115,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @throws          NumberFormatException If the {@code String}
      *                  does not contain a parsable {@code short}.
      */
+    // 按radix进制形式将字符串s解析为short值
     public static short parseShort(String s, int radix)
         throws NumberFormatException {
         int i = Integer.parseInt(s, radix);
@@ -142,6 +143,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @throws  NumberFormatException If the string does not
      *          contain a parsable {@code short}.
      */
+    // 按10进制形式将字符串s解析为short值
     public static short parseShort(String s) throws NumberFormatException {
         return parseShort(s, 10);
     }
@@ -171,6 +173,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @throws          NumberFormatException If the {@code String} does
      *                  not contain a parsable {@code short}.
      */
+    // 按radix进制形式将字符串s解析为short值，随后再装箱
     public static Short valueOf(String s, int radix)
         throws NumberFormatException {
         return valueOf(parseShort(s, radix));
@@ -198,10 +201,12 @@ public final class Short extends Number implements Comparable<Short> {
      * @throws  NumberFormatException If the {@code String} does
      *          not contain a parsable {@code short}.
      */
+    // 按10进制形式将字符串s解析为short值，随后再装箱
     public static Short valueOf(String s) throws NumberFormatException {
         return valueOf(s, 10);
     }
 
+    // Short缓存，缓存了-128~127之间的Short对象
     private static class ShortCache {
         private ShortCache(){}
 
@@ -229,6 +234,7 @@ public final class Short extends Number implements Comparable<Short> {
      * @return a {@code Short} instance representing {@code s}.
      * @since  1.5
      */
+    // short-->Short 默认的装箱行为
     public static Short valueOf(short s) {
         final int offset = 128;
         int sAsInt = s;
@@ -279,6 +285,14 @@ public final class Short extends Number implements Comparable<Short> {
      * @throws    NumberFormatException  if the {@code String} does not
      *            contain a parsable {@code short}.
      * @see java.lang.Short#parseShort(java.lang.String, int)
+     */
+    /*
+     * 将字符串nm解析为short，随后再装箱
+     *
+     * 采用哪种进制解析nm取决于nm的格式：
+     * > 0x、0X、#开头，代表按16进制解析
+     * > 0开头，代表按8进制解析
+     * > 其他情形默认按10进制解析
      */
     public static Short decode(String nm) throws NumberFormatException {
         int i = Integer.decode(nm);
