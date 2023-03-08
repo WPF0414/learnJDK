@@ -17,7 +17,7 @@ javac -J-Xms1G -J-Xmx1G -sourcepath "$projectHome"/src/java -cp "$projectHome"/l
 cd "$projectHome"/target/classes || exit
 jar cf0 rt_debug.jar java
 sudo -S mv rt_debug.jar /Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home/jre/lib/endorsed
-cd "$scriptHome"
+cd "$scriptHome" || exit
 rm -rf filelist.txt log.txt
 echo "=====操作结束===="
 endTime=$(date +%s)
